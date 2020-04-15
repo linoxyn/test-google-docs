@@ -1,10 +1,25 @@
+// require('dotenv').config()
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `Testing Gatsby Source Google Docs Plugin`,
+    description: `Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
   },
   plugins: [
+    {
+      resolve: 'gatsby-source-google-docs',
+      options: {
+        folders: [
+          `1qKMUeRYByO2U2YU2470Sbjvdzjb7tH2c`,
+        ],
+      },
+    },
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+          plugins: ["gatsby-remark-images"],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
