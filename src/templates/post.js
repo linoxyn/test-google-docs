@@ -3,7 +3,9 @@ import { graphql } from 'gatsby'
 import Img from "gatsby-image"
 import Layout from '../components/layout'
 
-const PostTemplate = ({data: {post}}) => (
+const PostTemplate = ({data: {post}}) => {
+  // console.log('HTML Return:', post.html)
+  return (
   <Layout>
     {post.frontmatter.cover && (
       <Img
@@ -15,7 +17,7 @@ const PostTemplate = ({data: {post}}) => (
     )}
     <div dangerouslySetInnerHTML={{__html: post.html}} />
   </Layout>
-)
+)}
 
 export default PostTemplate
 
