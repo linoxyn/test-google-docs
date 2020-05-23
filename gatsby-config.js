@@ -1,4 +1,4 @@
-// require('dotenv').config()
+require('dotenv').config()
 module.exports = {
   siteMetadata: {
     title: `Testing Gatsby Source Google Docs Plugin`,
@@ -10,7 +10,7 @@ module.exports = {
       resolve: 'gatsby-source-google-docs',
       options: {
         folders: [
-          `1qKMUeRYByO2U2YU2470Sbjvdzjb7tH2c`,
+          process.env.FOLDER_ID_TEST,
         ],
       },
     },
