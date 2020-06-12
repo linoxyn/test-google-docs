@@ -15,5 +15,62 @@
         "destination": "/index.html"
       }
     ]
-  }
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "functions": {
+    "predeploy": [
+      "npm --prefix \"$RESOURCE_DIR\" run lint"
+    ],
+    "source": "functions"
+  },
+  "headers": [
+    {
+      "source": "**/*",
+      "headers": [
+        {
+          "key": "cache-control",
+          "value": "cache-control: public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "static/**",
+      "headers": [
+        {
+          "key": "cache-control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "**/*.@(css|js)",
+      "headers": [
+        {
+          "key": "cache-control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "sw.js",
+      "headers": [
+        {
+          "key": "cache-control",
+          "value": "cache-control: public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "page-data/**",
+      "headers": [
+        {
+          "key": "cache-control",
+          "value": "cache-control: public, max-age=0, must-revalidate"
+        }
+      ]
+    }
+  ]
 }
